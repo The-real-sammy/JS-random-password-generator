@@ -90,8 +90,15 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+  // determine the number of characters 
+  var passwordLength = prompt("How many characters would you like in your password? (8-128)");
 
-}
+  passwordLength = prompt("How many characters would you like in your password? (8-128)");
+    }
+
+console.log("is this the options", getPasswordOptions)
+console.log("i think this is the prompt?", passwordLength)
+
 
 // Function for getting a random element from an array
 function getRandom(arr) {
