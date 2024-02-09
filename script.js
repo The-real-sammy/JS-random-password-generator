@@ -90,8 +90,29 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+  // determine the number of characters 
+  var passwordLength = prompt("How many characters would you like in your password? (8-128)");
+//  
+  var error = true;
+  while (error) {
+    if (passwordLength < 8 || passwordLength > 128) {
+//create alert for was word length, if true create prompt for number of characters again
+      alert("Please input a number between 8 and 128.");
+      passwordLength = prompt("How many characters would you like in your password? (8-128)");
+    } 
+    //if the error is false create prompt for special characters 
+    else {
+      error = false;
+      var charType = [{
+        type: "special characters",
+        character: specialCharacters,
+        incl_char_type: false
+      }];
+    }}}
 
-}
+// console.log("is this the options", getPasswordOptions)
+// console.log("i think this is the prompt?", passwordLength)
+
 
 // Function for getting a random element from an array
 function getRandom(arr) {
