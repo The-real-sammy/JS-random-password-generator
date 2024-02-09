@@ -100,12 +100,27 @@ function getPasswordOptions() {
       alert("Please input a number between 8 and 128.");
       passwordLength = prompt("How many characters would you like in your password? (8-128)");
     } 
-    //if the error is false create prompt for special characters 
+    //if the error is false create prompt for characters types by calling on the arrays above 
     else {
       error = false;
       var charType = [{
         type: "special characters",
         character: specialCharacters,
+        incl_char_type: false
+      },
+      {
+        type: "numeric characters",
+        character: numericCharacters,
+        incl_char_type: false
+      },
+      {
+        type: "lowercase characters",
+        character: lowerCasedCharacters,
+        incl_char_type: false
+      },
+      {
+        type: "uppercase characters",
+        character: upperCasedCharacters,
         incl_char_type: false
       }];
     }}}
