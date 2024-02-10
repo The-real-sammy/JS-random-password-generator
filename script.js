@@ -149,7 +149,9 @@ function getPasswordOptions() {
         password_length: passwordLength,
         char_types: charType
       };
-    }}}
+      // generate password with user input
+
+    }}};
 
 // console.log("is this the options", getPasswordOptions)
 // console.log("i think this is the prompt?", passwordLength)
@@ -157,11 +159,40 @@ function getPasswordOptions() {
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+    var randomIndex= Math.floor (Math.random () * arr.length)
+    var randomArray= arr[randomIndex]
+  return randomArray
 }
 
 // Function to generate password with user input
 function generatePassword() {
+  var passwordOptions = getPasswordOptions();
+  var passwordLength = passwordOptions.password_length;
+  var charType = passwordOptions.char_types;
+  var generatePassword = [];
+
+if (charType [0] ["incl_char_type"]) {
+  generatePassword= generatePassword.concat (specialCharacters)
+} 
+
+if (charType [1] ["incl_char_type"])
+{generatePassword = generatePassword.concat (numericCharacters)}
+
+if (charType [2] ["incl_char_type"]) {
+  generatePassword = generatePassword.concat (lowerCasedCharacters)
+}
+if (charType [3] ["incl_char_type"]) {
+  generatePassword =generatePassword.concat (upperCasedCharacters)
+}
+  // var passwordCharacters = [passwordLength];
+  console.log (generatePassword)
+  var finalPassword = [] 
+  for (var i=0; i<passwordLength; i++) {
+    var character= getRandom( generatePassword)
+    finalPassword.push (character)
+  }
+  return finalPassword.join ("")
+
 
 }
 
