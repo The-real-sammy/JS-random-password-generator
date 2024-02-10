@@ -90,19 +90,23 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  // determine the number of characters 
+  // determine the number of characters and it is stored in the variable passwordLength
   var passwordLength = prompt("How many characters would you like in your password? (8-128)");
-//  
+  
+// variable error is set to true to indicate that an error has occurred
   var error = true;
+  //while loop will continue until the user provides a valid password length
   while (error) {
     if (passwordLength < 8 || passwordLength > 128) {
-//create alert for was word length, if true create prompt for number of characters again
+//alert is displayed to the user asking them to input a number between 8 and 128. 
+//The prompt() function is called again to get a new input from the user.
       alert("Please input a number between 8 and 128.");
       passwordLength = prompt("How many characters would you like in your password? (8-128)");
     } 
-    //if the error is false create prompt for characters types by calling on the arrays above 
+    //if the error is false it exits the loop and creates prompt for characters types by calling on the arrays above 
     else {
       error = false;
+      //variables uses a boolean set to false indicating the user has not selected it yet 
       var charType = [{
         type: "special characters",
         character: specialCharacters,
@@ -123,6 +127,28 @@ function getPasswordOptions() {
         character: upperCasedCharacters,
         incl_char_type: false
       }];
+      var charCheck = false;
+      while (!charCheck) {
+        for (let i = 0; i < charType.length; i++) { // asks the questions to include different character types 
+          charType[i].incl_char_type = confirm("Would you like your password to include " + charType[i].type + "?");
+        };
+        for (let i = 0; i < charType.length; i++) { // checks if any are selected as true
+          if (charType[i].incl_char_type === true) {
+            charCheck = true;
+          }
+        };
+        // if none are selected then an alert occurs to ask for characters to be selected.
+        if (!charCheck) {
+          alert("Please select at least one type of character.");
+        }
+      } 
+      //CharType logged for debugging 
+      console.log(charType);
+        // function returns the object containing the password_length and char_types 
+      return {
+        password_length: passwordLength,
+        char_types: charType
+      };
     }}}
 
 // console.log("is this the options", getPasswordOptions)
