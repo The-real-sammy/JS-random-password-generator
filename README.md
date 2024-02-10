@@ -1,4 +1,4 @@
-# js-password-generation
+# js-random-password-generator
 
 ## Description
 This app will feature update HTML and CSS powered by JavaScript code, with no errors shown in the console. It aims to create a random password generator, that prompts users to input a selection of character types and length and then returns a random password.
@@ -6,7 +6,12 @@ This app will feature update HTML and CSS powered by JavaScript code, with no er
 The motivation behind this project is to expand the understanding of JS and to get practice in creating functions to retun information.
 
 ### Key Learning Outcomes:
-xxxxx
+- Learning to create functions and how to call on them.
+- Creating prompts and alerts.
+- Learning about Concatenation.
+- How to generate random characters from an array.
+- How to append the information to a (html) button using a query selector and then appending the value to the page.
+- How to use eventListerners.
 
 ## Installation
 
